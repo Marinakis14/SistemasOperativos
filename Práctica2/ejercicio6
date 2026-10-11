@@ -1,0 +1,25 @@
+//Analiza el siguiente código y predice la salida:
+
+void duplicar(int *n) {
+	*n = (*n) * 2;
+}
+
+int main() {
+	int x = 7;
+	duplicar(&x);
+	printf("%d\n", x);
+	return 0;
+}
+
+1. ¿Qué valor tiene x antes de llamar a la función?
+	Antes de llamar a la función x vale 7.
+
+2. ¿Qué contiene n?
+	n contiene la dirección que se introduzca en la función duplicar, en este caso n es un puntero que contiene la dirección de x.
+
+3. ¿Qué representa *n?
+	 *n representa el valor almacenado en la dirección de n, en este caso es el valor almacenado en la dirección de x, que es 7.
+
+4. ¿Cuál será la salida final?
+	Si vamos paso a paso, primero x vale 7, despues ejecutamos la función duplicar a la dirección de x donde está guardado el 7, después, 
+	duplicamos el valor almacenado en esa dirección, que es el valor de x, el cual pasa de ser 7 a ser 14 y por tanto al imprimir el valor de x en 	      la siguiente linea, el resultado por pantalla será: 14.
