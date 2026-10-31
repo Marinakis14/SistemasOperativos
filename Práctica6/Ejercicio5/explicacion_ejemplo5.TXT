@@ -1,0 +1,5 @@
+EXPLICACION EJEMPLO5 Y EJEMPLO5_MEJORADO
+
+El ejemplo5.c representa la solucion propuesta en clase de aprovechar que un hilo entra en la zona critica para hacer varias sumas de golpe.
+
+Sin embargo esa solución hacía un poco inutil el hecho de crear hilos ya que para eso podriamos hacerlo con un solo hilo y ya esta, por lo que he creado el archivo ejemplo5_mejorado.c en el que creo una variable propia de cada hilo para que cada hilo modifique su propia variable sin interferir con los demas hilos y despues he aplicado el lock solo para sumar ese recuento al recuento total donde si que puede haber interferencia de hilos, de esta manera varios hilos pueden trabajar en paralelo y es mucho mas eficaz.

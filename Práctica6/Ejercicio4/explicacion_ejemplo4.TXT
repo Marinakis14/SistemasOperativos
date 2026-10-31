@@ -1,0 +1,25 @@
+RESPUESTAS EJERCICIO 4
+
+
+
+1. ¿El resultado ahora es correcto?
+
+Sí, ahora siempre da 400000000 aunque le pongamos 2, 4 o más hilos. Al usar el mutex (pthread_mutex_lock y unlock) nos aseguramos de que solo un hilo a la vez cambie la 'x', así que ya no hay condiciones de carrera y el valor final no se corrompe.
+
+
+
+2. ¿Qué pasa con el tiempo de ejecución y por qué?
+
+El tiempo de ejecución empeora muchísimo. En vez de tardar menos por usar varios hilos, tarda bastante más. 
+
+Esto pasa porque dentro del bucle estamos haciendo 400 millones de locks y unlocks. Pedir y soltar el mutex todo el rato tiene un coste enorme para el sistema, y además, como la 'x++' está bloqueada, los hilos se pasan casi todo el rato esperando a que termine el otro.
+
+
+
+3. ¿Qué significan real, user y sys en la orden 'time'?
+
+- real: Es el tiempo total de reloj desde que le das a ENTER hasta que termina el programa (el tiempo real que esperas tú delante de la pantalla).
+
+- user: Es el tiempo que ha estado la CPU ejecutando el código de nuestro programa en espacio de usuario.
+
+- sys: Es el tiempo que ha pasado la CPU haciendo tareas del sistema operativo/kernel para nuestro programa (como gestionar las esperas y los bloqueos del mutex).
